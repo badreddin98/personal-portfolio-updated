@@ -1,0 +1,153 @@
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Apply Animations */
+.animate-text {
+    animation: fadeIn 1s ease forwards;
+}
+
+.animate-text-delay {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.skill-card {
+    animation: scaleIn 0.5s ease forwards;
+}
+
+.project-card {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Section Animations */
+.about,
+.skills,
+.projects,
+.contact {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.about.visible,
+.skills.visible,
+.projects.visible,
+.contact.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover Animations */
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.skill-card,
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover,
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Form Animations */
+.form-group input,
+.form-group textarea {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Button Animations */
+.cta-button,
+.button,
+.submit-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::after,
+.button::after,
+.submit-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.cta-button:hover::after,
+.button:hover::after,
+.submit-button:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Social Links Animation */
+.social-links a {
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
